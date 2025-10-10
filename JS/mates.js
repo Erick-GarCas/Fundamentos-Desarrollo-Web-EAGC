@@ -1,0 +1,3 @@
+document.write("Función ABS del número -10 es <mark>" + Math.abs(-10) + "</mark> el cual es el valor positivo del número" + "<br>");
+document.write("<br>" + "Función CEIL del número 3.1416 es <mark>" + Math.ceil(3.1416) + "</mark> el cual es un valor redondeado hacía arriba" + "<br>");
+document.write("<br>" + "Función RANDOM me da un número aleatorio: <mark>" + Math.random() + "</mark> la cual genera números aleatorios" + "<br>");

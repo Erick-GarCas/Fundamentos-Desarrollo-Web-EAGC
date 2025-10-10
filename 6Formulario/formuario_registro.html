@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title>Registro</title>
+</head>
+
+<body>
+    <main class="container border border-2 p-4 mt-4 rounded-3 shadow-lg">
+        <h1 class="text-center fw-semibold lh-sm text-body-emphasis mb-3 ">Formulario de Resgistro</h1>
+        <br>
+        <form action="" autocomplete="off">
+            <!--Sección de datos Personales-->
+            <section class="row">
+                <div class="col-4 ">
+                    <label for="txtNombre">Nombre(s)</label>
+                    <input id="txtNombre" type="text" name="txtNombre" placeholder="Obligatorio" class="form-control shadow-lg" required>
+                </div>
+
+                <div class="col-4">
+                    <label for="txtPrimerApellido">Primer Apellido</label>
+                    <input id="txtPrimerApellido" type="text" name="txtPrimerApellido" placeholder="Obligatorio" class="form-control shadow-lg" required>
+                </div>
+
+                <div class="col-4">
+                    <label for="txtSegundoApellido">Segundo Apellido</label>
+                    <input id="txtSegundoApellido" type="text" name="txtSegundoApellido" placeholder="Opcional" class="form-control shadow-lg">
+                </div>
+            </section>
+            <br>
+
+            <!--Sección de datos Generales-->
+            <section class=" row ">
+                <div class="col-4 ">
+                    <label for="txtFechaNacimiento">Fecha Nacimiento</label>
+                    <input id="txtFechaNacimiento" type="date" name="txtFechaNacimiento" placeholder="Obligatorio" class="form-control shadow-lg" required>
+                </div>
+
+                <div class="col-4 shadow-lg">
+                    <label class="form-label">Género</label>
+                    <div class="form-check">
+                        <input class="form-check-input" id="rdMasculino" type="radio" name="genero" value="Masculino">
+                        <label class="form-check-label" for="rdMasculino">Masculino</label>
+                    </div>
+                    <div class="form-check shadow-lg">
+                        <input class="form-check-input" id="rdFemenino" type="radio" name="genero" value="Femenino">
+                        <label class="form-check-label" for="rdFemenino">Femenino</label>
+                    </div>
+                </div>
+            </section>
+            <br>
+
+            <!--Sección de lista de interesés-->
+            <section class="row ">
+                <div class="col-4 shadow-lg">
+                    <label class="form-label">Área de Interés</label>
+                    <div class="form-check">
+                        <input class="form-check-input" id="chkProgramacion" type="checkbox" name="chkProgramacion">
+                        <label class="form-check-label" for="chkProgramacion">Programación</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" id="chkBaseDatos" type="checkbox" name="chkBaseDatos">
+                        <label class="form-check-label" for="chkBaseDatos">Base de Datos</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" id="chkDevWeb" type="checkbox" name="chkDevWeb">
+                        <label class="form-check-label" for="chkDevWeb">Desarrollo Web</label>
+                    </div>
+                </div>
+            </section>
+            <br>
+
+            <!--Sección de subir CV-->
+            <section class="row">
+                <div class="col-9 mb-3">
+                    <label for="" class="form-label">Carga el documento</label>
+                    <input id="fileCV" class="form-control form-control-sm" type="file" accept=".pdf">
+                </div>
+            </section>
+            <br>
+
+            <!--Sección de registro usuario-->
+            <section class=" row ">
+                <div class="col-4 ">
+                    <label for="txtUsuario ">Usuario</label>
+                    <input id="txtUsuario " type="email " name="txtUsuario " placeholder="Correo " class="form-control shadow-lg" required>
+                </div>
+
+                <div class=" col-4 ">
+                    <label for="txtContrasena ">Contraseña</label>
+                    <input id="txtContrasena " type="password " name="txtContrasena " placeholder="Mínimo 8 caracteres " class="form-control shadow-lg" required>
+                </div>
+
+                <div class="col-4 ">
+                    <label for="txtConfirmarContrasena ">Confirmar Contraseña</label>
+                    <input id="txtConfirmarContrasena " type="password " name="txtConfirmarContrasena " placeholder="Mínimo 8 caracteres " class="form-control shadow-lg" required>
+                </div>
+            </section>
+            <br>
+
+            <!--Sección de botón-->
+            <section class=" row text-center ">
+                <div class="col ">
+                    <button type="submit" class="btn btn-success me-2 px-4 shadow-lg">Guardar</button>
+                    <button type="reset" class="btn btn-danger px-4 shadow-lg">Borrar</button>
+                </div>
+            </section>
+    </main>
+</body>
+
+</html>

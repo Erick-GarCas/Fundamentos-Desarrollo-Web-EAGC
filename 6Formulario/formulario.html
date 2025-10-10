@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <div class="container">
+        <form autocomplete="off">
+            <fieldset>
+                <legend>
+                    <h5>Datos Personales</h5>
+                </legend>
+                <label for="txtMatricula">Matrícula</label>
+                <input id="txtMatricula" type="number" name="txtMatricula" placeholder="Obligatorio">
+                <br>
+                <br>
+                <label for="txtNombre">Nombre</label>
+                <input id="txtNombre" type="text" name="txtNombre" placeholder="Obligatorio">
+                <br>
+                <br>
+                <label for="txtPrimerApellido">Primer Apellido</label>
+                <input id="txtPrimerApellido" type="text" name="txtPrimerApellido" placeholder="Obligatorio">
+                <br>
+                <br>
+                <label for="txtSegundoApellido">Segundo Apellido</label>
+                <input id="txtSegundoApellido" type="text" name="txtSegundoApellido" placeholder="Opcional">
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <h5>Datos de Contacto</h5>
+                </legend>
+                <label for="txtEmail">Correo</label>
+                <input id="txtEmail" type="email" name="txtEmail" placeholder="example@mail.com">
+                <br>
+                <br>
+                <label for="txtTelefono">Teléfono</label>
+                <input id="txtTelefono" type="tel" name="txtTelefono" placeholder="(+52) 999-9999">
+            </fieldset>
+
+            <br>
+            <fieldset>
+                <legend>
+                    <h5>Datos Académicos</h5>
+                </legend>
+                <label for="cboCarrera">Carrera</label>
+                <select id="cboCarrera" name="cboCarrera">
+                    <option value="" disabled selected>[Seleccione]</option>
+                    <option value="LC">Lic. Contabilidad</option>
+                    <option value="LA">Lic. Administración</option>
+                    <option value="LTI">Lic. Tecnologías de Información</option>
+                    <option value="LNI">Lic. Negocios Internacionales</option>
+                </select>
+                <br>
+                <fieldset>
+                    <legend>
+                        <h5>Semestre</h5>
+                    </legend>
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="1">1
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="2">2
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="3">3
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="4">4
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="5">5
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="6">6
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="7">7
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="8">8
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="9">9
+                    <input id="rdSemestre" type="radio" name="rdSemestre" value="10">10
+                </fieldset>
+                <br>
+                <label for="txtFechaIngreso">Fecha de Ingreso</label>
+                <input id="txtFechaIngreso" type="date" name="txtFechaIngreso">
+                <br>
+                <br>
+                <label for="chkAceptar">ACEPTO TERMINOS Y CONDICIONES</label>
+                <input id="chkAceptar" type="checkbox" name="chkAceptar">
+
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
