@@ -1,11 +1,14 @@
-function registros() {
+function serie() {
     let numeroregistros = document.getElementById('txtNumero').value;
     let grid = '<table class="table table-hover">' +
+        '<thead class="thead-dark">' +
         '<tr>' +
         '<th>Id</th>' +
         '<th>Nombre</th>' +
-        '<th>Acciones</th>' +
-        '</tr>';
+        '<th></th>' +
+        '<th></th>' +
+        '</tr>' +
+        '</thead>';
 
     for (let i = 1; i <= numeroregistros; i++) {
         nombre = prompt('Ingrese un nombre de Empleado:');
@@ -22,5 +25,6 @@ function registros() {
             '</td>' +
             '</tr>';
     }
-
+    grid += '</table>';
+    document.getElementById('area').innerHTML = grid;
 }

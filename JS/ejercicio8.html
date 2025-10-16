@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen</title>
+    <script src="ejercicio8.js"></script>
+    <script src="modo.js"></script>
+</head>
+
+<body>
+    <h1>Examen</h1>
+    <p>Selecciona las opciones correctas</p>
+    <button onclick="modooscuro()">Modo Oscuro</button><br><br>
+    <form>
+        <fieldset>
+            <legend>Datos Personales</legend>
+            <label for="txtNombre">Nombre</label>
+            <input id="txtNombre" type="text" name="txtNombre" required="tue">
+
+            <label for="txtMatricula">Matrícula</label>
+            <input id="txtMatricula" type="number" name="txtMatricula" required="tue">
+
+            <label for="txtGrupo">Grupo</label>
+            <input id="txtGrupo" type="text" name="txtGrupo" required="tue">
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 1: ¿Cuál es la capital de Francia?</legend>
+            <input type="radio" id="rdP1A" name="p1" value="a">
+            <label for="rdP1A">París</label>
+            <input type="radio" id="rdP1B" name="p1" value="b">
+            <label for="rdP1B">Madrid</label>
+            <input type="radio" id="rdP1C" name="p1" value="c">
+            <label for="rdP1C">Berlín</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 2: ¿Cuál es 2 + 2?</legend>
+            <input type="radio" id="rdP2A" name="p2" value="a">
+            <label for="rdP2A">5</label>
+            <input type="radio" id="rdP2B" name="p2" value="b">
+            <label for="rdP2B">8</label>
+            <input type="radio" id="rdP2C" name="p2" value="c">
+            <label for="rdP2C">4</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 3: ¿Cuál es el color del cielo?</legend>
+            <input type="radio" id="rdP3A" name="p3" value="a">
+            <label for="rdP3A">Naranja</label>
+            <input type="radio" id="rdP3B" name="p3" value="b">
+            <label for="rdP3B">Azul</label>
+            <input type="radio" id="rdP3C" name="p3" value="c">
+            <label for="rdP3C">Verde</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 4: ¿Cuál es la materia de este examen?</legend>
+            <input type="radio" id="rdP4A" name="p4" value="a">
+            <label for="rdP4A">Fundamentos de Desarrollo Web</label>
+            <input type="radio" id="rdP4B" name="p4" value="b">
+            <label for="rdP4B">Bases de Datos</label>
+            <input type="radio" id="rdP4C" name="p4" value="c">
+            <label for="rdP4C">Programación Avanzada</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 5: ¿Qué etiqueta HTML se usa para crear un enlace?</legend>
+            <input type="radio" id="rdP5A" name="p5" value="a">
+            <label for="rdP5A">&lt;img&gt;</label>
+            <input type="radio" id="rdP5B" name="p5" value="b">
+            <label for="rdP5B">&lt;a&gt;</label>
+            <input type="radio" id="rdP5C" name="p5" value="c">
+            <label for="rdP5C">&lt;link&gt;</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 6: En CSS, ¿qué propiedad cambia el color del texto?</legend>
+            <input type="radio" id="rdP6A" name="p6" value="a">
+            <label for="rdP6A">background-color</label>
+            <input type="radio" id="rdP6B" name="p6" value="b">
+            <label for="rdP6B">color</label>
+            <input type="radio" id="rdP6C" name="p6" value="c">
+            <label for="rdP6C">font-size</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 7: En JavaScript, ¿cuál es el resultado de typeof []?</legend>
+            <input type="radio" id="rdP7A" name="p7" value="a">
+            <label for="rdP7A">"array"</label>
+            <input type="radio" id="rdP7B" name="p7" value="b">
+            <label for="rdP7B">"object"</label>
+            <input type="radio" id="rdP7C" name="p7" value="c">
+            <label for="rdP7C">"list"</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 8: Verdadero o Falso: CSS significa "Cascading Style Sheets".</legend>
+            <input type="radio" id="rdP8A" name="p8" value="a">
+            <label for="rdP8A">Verdadero</label>
+            <input type="radio" id="rdP8B" name="p8" value="b">
+            <label for="rdP8B">Falso</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 9: Verdadero o Falso: El atributo alt en la etiqueta &lt;img&gt; es opcional y no afecta la accesibilidad.</legend>
+            <input type="radio" id="rdP9A" name="p9" value="a">
+            <label for="rdP9A">Verdadero</label>
+            <input type="radio" id="rdP9B" name="p9" value="b">
+            <label for="rdP9B">Falso</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Pregunta 10: ¿Qué protocolo se utiliza para páginas web seguras?</legend>
+            <input type="radio" id="rdP10A" name="p10" value="a">
+            <label for="rdP10A">HTTP</label>
+            <input type="radio" id="rdP10B" name="p10" value="b">
+            <label for="rdP10B">HTTPS</label>
+            <input type="radio" id="rdP10C" name="p10" value="c">
+            <label for="rdP10C">FTP</label>
+        </fieldset>
+
+        <br>
+        <button type="submit" onclick="evaluacion()">Enviar</button>
+        <button type="reset">Limpiar</button>
+    </form>
+</body>
+
+</html>
