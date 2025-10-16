@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loader (simulación de carga)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 16px;
+        }
+        
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid #ddd;
+            border-top-color: #1e90ff;
+            border-radius: 50%;
+            animation: girar 1s linear infinite;
+            margin-top: 12px;
+            display: none;
+        }
+        
+        @keyframes girar {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        #resultado {
+            margin-top: 12px;
+            display: none;
+        }
+    </style>
+    <!-- JS propio -->
+    <script src="loader.js"></script>
+</head>
+
+<body>
+    <h1>Loader (simulación de carga)</h1>
+    <p>Presiona el botón para simular una carga de datos por unos segundos.</p>
+
+    <button type="button" id="btnCargar" onclick="iniciarCarga()">Iniciar carga</button>
+
+    <div id="spinner" class="spinner" aria-label="Cargando" role="status"></div>
+
+    <div id="resultado">¡Listo! Contenido cargado.</div>
+</body>
+
+</html>

@@ -21,6 +21,15 @@ function eleccionOperacion() {
             break;
         default:
             alert("Operación no válida");
+            return;
     }
-    alert("El resultado es: " + resultado);
+    const nombreOperacion = {
+        suma: "suma",
+        resta: "resta",
+        multiplicacion: "multiplicación",
+        division: "división",
+        modulo: "módulo"
+    }[operacion] || operacion;
+
+    alert("La " + nombreOperacion + " del número " + numero1 + " y número " + numero2 + " es " + resultado);
 }

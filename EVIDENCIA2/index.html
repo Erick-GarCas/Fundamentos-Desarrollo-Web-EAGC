@@ -1,14 +1,365 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Introducción a JavaScript | Ejercicios y Recursos</title>
+    <meta name="description" content="Página principal sobre JavaScript: características, fundamentos, aplicaciones, recursos y acceso rápido a ejercicios prácticos." />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- JS propio -->
+    <script defer src="assets/js/main.js"></script>
 </head>
 
 <body>
+    <!-- Navbar Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Logo JavaScript" width="28" height="28" />
+                <span>EVIDENCIA 2</span>
+                <span class="badge text-bg-warning text-dark">Intro</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navJS" aria-controls="navJS" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navJS">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#caracteristicas">Características</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fundamentos">Fundamentos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#aplicaciones">Aplicaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#multimedia">Multimedia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#recursos">Recursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ejercicios">Ejercicios</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero / Introducción -->
+    <section id="inicio" class="py-5 bg-light border-bottom">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <h1 class="display-6 mb-3">Introducción a JavaScript</h1>
+                    <p class="lead">JavaScript (JS) es el lenguaje que da interactividad y dinamismo a la web. También se usa en servidores, apps móviles y de escritorio.</p>
+                    <div class="d-flex gap-2">
+                        <a class="btn btn-primary" href="#ejercicios">Ir a ejercicios</a>
+                        <a class="btn btn-outline-secondary" href="#recursos">Recursos</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                        <iframe src="https://www.youtube.com/embed/1glVfFxj8a4" title="¿Qué es JavaScript? Video introductorio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características principales -->
+    <section id="caracteristicas" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Características principales</h2>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <strong>Interpretado y multiplataforma</strong>: corre en navegadores y servidores (Node.js).</li>
+                        <li class="list-group-item"> <strong>Tipado dinámico</strong>: variables que pueden cambiar de tipo en tiempo de ejecución.</li>
+                        <li class="list-group-item"> <strong>Orientado a eventos</strong>: responde a interacciones de usuario y del sistema.</li>
+                        <li class="list-group-item"> <strong>Asincronía</strong>: callbacks, Promesas y async/await.</li>
+                        <li class="list-group-item"> <strong>Gran ecosistema</strong>: NPM con miles de paquetes.</li>
+                        <li class="list-group-item"> <strong>Compatibilidad</strong>: funciona en todos los navegadores modernos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundamentos del lenguaje -->
+    <section id="fundamentos" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Elementos fundamentales</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Sintaxis y tipos</h5>
+                            <ul class="mb-0">
+                                <li><strong>Variables</strong>: <code>let</code>, <code>const</code>, <code>var</code></li>
+                                <li><strong>Primitivos</strong>: string, number, boolean, null, undefined, symbol, bigint</li>
+                                <li><strong>Operadores</strong>: aritméticos, lógicos, comparación y asignación</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Control y estructuras</h5>
+                            <ul class="mb-0">
+                                <li><strong>Flujo</strong>: <code>if</code>, <code>switch</code>, <code>for</code>, <code>while</code>, <code>for...of</code>, <code>try...catch</code></li>
+                                <li><strong>Funciones</strong>: clásicas, flecha, parámetros por defecto, rest/spread</li>
+                                <li><strong>Objetos y arreglos</strong>: literales, métodos, desestructuración y prototipos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">DOM y eventos</h5>
+                            <p class="mb-0">Manipulación del árbol del documento, escucha de eventos y actualización de interfaces.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Asincronía</h5>
+                            <p class="mb-0">Promesas, <code>async/await</code>, <code>fetch</code> y temporizadores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aplicaciones -->
+    <section id="aplicaciones" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Principales aplicaciones</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Front-end</h5>
+                            <p class="card-text mb-0">Interfaces e interactividad en el navegador.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Back-end</h5>
+                            <p class="card-text mb-0">Servicios y APIs con Node.js.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Apps móviles / escritorio</h5>
+                            <p class="card-text mb-0">Tecnologías web en múltiples plataformas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Automatización</h5>
+                            <p class="card-text mb-0">Scripts y utilidades.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">IoT y juegos</h5>
+                            <p class="card-text mb-0">Control de dispositivos y gráficos en web.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multimedia -->
+    <section id="multimedia" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Multimedia</h2>
+            <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/1glVfFxj8a4" title="¿Qué es JavaScript? Video introductorio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <figure class="mt-3">
+                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80&auto=format&fit=crop" alt="Código JavaScript en un editor" class="img-fluid rounded shadow-sm" />
+            </figure>
+        </div>
+    </section>
+
+    <!-- Recursos externos -->
+    <section id="recursos" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Recursos recomendados</h2>
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action" href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener">MDN Web Docs</a>
+                <a class="list-group-item list-group-item-action" href="https://lenguajejs.com/javascript/" target="_blank" rel="noopener">JavaScript en Español</a>
+                <a class="list-group-item list-group-item-action" href="https://tc39.es/" target="_blank" rel="noopener">ECMAScript (TC39)</a>
+                <a class="list-group-item list-group-item-action" href="https://www.npmjs.com/" target="_blank" rel="noopener">NPM</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ejercicios prácticos -->
+    <section id="ejercicios" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Ejercicios prácticos</h2>
+            <p class="lead">Acceso rápido a los ejercicios desarrollados en este sitio:</p>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 1</h5>
+                            <p class="card-text">Calculadora básica.</p>
+                            <a href="calculadora.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 2</h5>
+                            <p class="card-text">Tablas.</p>
+                            <a href="tablas.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 3</h5>
+                            <p class="card-text">Triángulo.</p>
+                            <a href="triangulo.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 4</h5>
+                            <p class="card-text">Pares e impares.</p>
+                            <a href="sumadepareseimpares.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 5</h5>
+                            <p class="card-text">Tabla de registros.</p>
+                            <a href="tablaregistros.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 6</h5>
+                            <p class="card-text">APIs de Math y String.</p>
+                            <a href="mates.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 7</h5>
+                            <p class="card-text">Número secreto.</p>
+                            <a href="numerosecreto.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 8</h5>
+                            <p class="card-text">Convertidor numérico.</p>
+                            <a href="convertidornumerico.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 9</h5>
+                            <p class="card-text">Examen.</p>
+                            <a href="examen.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 10</h5>
+                            <p class="card-text">Votos.</p>
+                            <a href="votos.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 11</h5>
+                            <p class="card-text">Cambio de color.</p>
+                            <a href="cambiocolor.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 12</h5>
+                            <p class="card-text">Cambiar texto.</p>
+                            <a href="cambiartexto.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 13</h5>
+                            <p class="card-text">Ocultar / mostrar elemento.</p>
+                            <a href="ocultarmostrar.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 14</h5>
+                            <p class="card-text">Loader.</p>
+                            <a href="loader.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Ejercicio 15</h5>
+                            <p class="card-text">Fondo animado.</p>
+                            <a href="fondoanimado.html" class="stretched-link">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <p class="mb-0">Erick Antonio Garza Castillo 2064668<span id="year"></span> Este es el index de mi evidencia 2</p>
+            <a href="#inicio">Volver arriba</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
