@@ -12,7 +12,14 @@
 <body>
     <h1>Examen</h1>
     <p>Selecciona las opciones correctas</p>
-    <button onclick="modooscuro()">Modo Oscuro</button><br><br>
+    <button type="button" onclick="modooscuro()">Modo Oscuro</button><br><br>
+    <label for="txtColorPregunta">Color de las preguntas</label>
+    <input id="txtColorPregunta" type="color" name="txtColorPregunta" value="#008000">
+    <button type="button" onclick="ResaltarPregunta()">Resaltar Preguntas</button><br><br>
+
+    <input id="txtColor" type="color" name="txtColor">
+    <button type="button" onclick="cambiarColor()">Cambiar color</button>
+
     <form>
         <fieldset>
             <legend>Datos Personales</legend>
@@ -27,7 +34,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 1: ¿Cuál es la capital de Francia?</legend>
+            <legend class="pregunta">Pregunta 1: ¿Cuál es la capital de Francia?</legend>
             <input type="radio" id="rdP1A" name="p1" value="a">
             <label for="rdP1A">París</label>
             <input type="radio" id="rdP1B" name="p1" value="b">
@@ -37,7 +44,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 2: ¿Cuál es 2 + 2?</legend>
+            <legend class="pregunta">Pregunta 2: ¿Cuál es 2 + 2?</legend>
             <input type="radio" id="rdP2A" name="p2" value="a">
             <label for="rdP2A">5</label>
             <input type="radio" id="rdP2B" name="p2" value="b">
@@ -47,7 +54,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 3: ¿Cuál es el color del cielo?</legend>
+            <legend class="pregunta">Pregunta 3: ¿Cuál es el color del cielo?</legend>
             <input type="radio" id="rdP3A" name="p3" value="a">
             <label for="rdP3A">Naranja</label>
             <input type="radio" id="rdP3B" name="p3" value="b">
@@ -57,7 +64,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 4: ¿Cuál es la materia de este examen?</legend>
+            <legend class="pregunta">Pregunta 4: ¿Cuál es la materia de este examen?</legend>
             <input type="radio" id="rdP4A" name="p4" value="a">
             <label for="rdP4A">Fundamentos de Desarrollo Web</label>
             <input type="radio" id="rdP4B" name="p4" value="b">
@@ -67,7 +74,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 5: ¿Qué etiqueta HTML se usa para crear un enlace?</legend>
+            <legend class="pregunta">Pregunta 5: ¿Qué etiqueta HTML se usa para crear un enlace?</legend>
             <input type="radio" id="rdP5A" name="p5" value="a">
             <label for="rdP5A">&lt;img&gt;</label>
             <input type="radio" id="rdP5B" name="p5" value="b">
@@ -77,7 +84,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 6: En CSS, ¿qué propiedad cambia el color del texto?</legend>
+            <legend class="pregunta">Pregunta 6: En CSS, ¿qué propiedad cambia el color del texto?</legend>
             <input type="radio" id="rdP6A" name="p6" value="a">
             <label for="rdP6A">background-color</label>
             <input type="radio" id="rdP6B" name="p6" value="b">
@@ -87,7 +94,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 7: En JavaScript, ¿cuál es el resultado de typeof []?</legend>
+            <legend class="pregunta">Pregunta 7: En JavaScript, ¿cuál es el resultado de typeof []?</legend>
             <input type="radio" id="rdP7A" name="p7" value="a">
             <label for="rdP7A">"array"</label>
             <input type="radio" id="rdP7B" name="p7" value="b">
@@ -97,7 +104,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 8: Verdadero o Falso: CSS significa "Cascading Style Sheets".</legend>
+            <legend class="pregunta">Pregunta 8: Verdadero o Falso: CSS significa "Cascading Style Sheets".</legend>
             <input type="radio" id="rdP8A" name="p8" value="a">
             <label for="rdP8A">Verdadero</label>
             <input type="radio" id="rdP8B" name="p8" value="b">
@@ -105,7 +112,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 9: Verdadero o Falso: El atributo alt en la etiqueta &lt;img&gt; es opcional y no afecta la accesibilidad.</legend>
+            <legend class="pregunta">Pregunta 9: Verdadero o Falso: El atributo alt en la etiqueta &lt;img&gt; es opcional y no afecta la accesibilidad.</legend>
             <input type="radio" id="rdP9A" name="p9" value="a">
             <label for="rdP9A">Verdadero</label>
             <input type="radio" id="rdP9B" name="p9" value="b">
@@ -113,7 +120,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Pregunta 10: ¿Qué protocolo se utiliza para páginas web seguras?</legend>
+            <legend class="pregunta">Pregunta 10: ¿Qué protocolo se utiliza para páginas web seguras?</legend>
             <input type="radio" id="rdP10A" name="p10" value="a">
             <label for="rdP10A">HTTP</label>
             <input type="radio" id="rdP10B" name="p10" value="b">
