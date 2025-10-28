@@ -3,17 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>Crear</title>
 </head>
 <body>
+  <div class="container">
     <h1>Crear Producto</h1>
-    <form method="post">
-      {% csrf_token %}
-      Nombre: <input type="text" name="nombre"><br>
-      Precio: <input type="text" name="precio"><br>
-      Descripción: <textarea name="descripcion"></textarea><br>
-      <button type="submit">Guardar</button>
-    </form>
 
+    <form method="post" class="product-form">
+      {% csrf_token %}
+      <div class="form-row">
+        <label class="form-label" for="id_nombre">Nombre</label>
+        <input class="full-width" id="id_nombre" type="text" name="nombre">
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="id_precio">Precio</label>
+        <input class="full-width" id="id_precio" type="text" name="precio">
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="id_descripcion">Descripción</label>
+        <textarea class="full-width" id="id_descripcion" name="descripcion"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <a class="btn btn-secondary" href="{% url 'listar' %}">Cancelar</a>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
