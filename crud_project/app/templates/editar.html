@@ -34,6 +34,15 @@
         <textarea class="full-width" id="id_descripcion" name="descripcion">{{ producto.descripcion }}</textarea>
       </div>
 
+      <div class="form-row">
+          <label class="form-label" for="id_categoria">Categoría</label>
+          <select class="form-select" id="id_categoria" name="categoria">
+            {% for categoria in categorias %}
+            <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
       <div class="form-actions">
   <button class="btn btn-primary" type="submit">Actualizar</button>
   <a class="btn btn-info ms-2" href="{% url 'listar' %}">Regresar a Listar</a>

@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
@@ -13,35 +13,45 @@
     <script src="{% static 'js/confirmar.js'%}" defer></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>Crear</title>
-</head>
-<body>
+  </head>
+  <body>
     {% include 'menu.html' %}
 
-  <div class="container">
-    <h1>Crear Producto</h1>
+    <div class="container">
+      <h1>Crear Producto</h1>
 
-    <form method="post" class="product-form">
-      {% csrf_token %}
-      <div class="form-row">
-        <label class="form-label" for="id_nombre">Nombre</label>
-        <input class="full-width" id="id_nombre" type="text" name="nombre">
-      </div>
+      <form method="post" class="product-form">
+        {% csrf_token %}
+        <div class="form-row">
+          <label class="form-label" for="id_nombre">Nombre</label>
+          <input class="full-width" id="id_nombre" type="text" name="nombre">
+        </div>
 
-      <div class="form-row">
-        <label class="form-label" for="id_precio">Precio</label>
-        <input class="full-width" id="id_precio" type="text" name="precio">
-      </div>
+        <div class="form-row">
+          <label class="form-label" for="id_precio">Precio</label>
+          <input class="full-width" id="id_precio" type="text" name="precio">
+        </div>
 
-      <div class="form-row">
-        <label class="form-label" for="id_descripcion">Descripción</label>
-        <textarea class="full-width" id="id_descripcion" name="descripcion"></textarea>
-      </div>
+        <div class="form-row">
+          <label class="form-label" for="id_descripcion">Descripción</label>
+          <textarea class="full-width" id="id_descripcion"
+            name="descripcion"></textarea>
+        </div>
 
-      <div class="form-actions">
-        <a class="btn btn-secondary" href="{% url 'listar' %}">Cancelar</a>
-        <button class="btn btn-primary" type="submit">Guardar</button>
-      </div>
-    </form>
-  </div>
-</body>
+        <div class="form-row">
+          <label class="form-label" for="id_categoria">Categoría</label>
+          <select class="form-select" id="id_categoria" name="categoria">
+            {% for categoria in categorias %}
+            <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <a class="btn btn-secondary" href="{% url 'listar' %}">Cancelar</a>
+          <button class="btn btn-primary" type="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
