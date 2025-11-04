@@ -21,12 +21,12 @@
       {% csrf_token %}
       <div class="form-row">
         <label class="form-label" for="id_nombre">Nombre</label>
-        <input class="full-width" id="id_nombre" type="text" name="nombre" value="{{ producto.nombre }}">
+        <input class="full-width" id="id_nombre" type="text" name="nombre" value="{{ producto.nombre }}" pattern="[A-Za-z\s]+">
       </div>
 
       <div class="form-row">
         <label class="form-label" for="id_precio">Precio</label>
-        <input class="full-width" id="id_precio" type="text" name="precio" value="{{ producto.precio }}">
+        <input class="full-width" id="id_precio" type="text" name="precio" value="{{ producto.precio }}" pattern="^\d+(\.\d{1,2})?$">
       </div>
 
       <div class="form-row">

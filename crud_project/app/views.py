@@ -25,13 +25,29 @@ def crear_producto(request):
  
 def editar_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
+    listar_categorias = Categoria.objects.all()
+
     if request.method == 'POST':
-        producto.nombre = request.POST['nombre']
-        producto.precio = request.POST['precio']
-        producto.descripcion = request.POST['descripcion']
+        producto.nombre = request.POST.get('nombre', producto.nombre)
+        producto.precio = request.POST.get('precio', producto.precio)
+        producto.descripcion = request.POST.get('descripcion', producto.descripcion)
+        # Actualizar categoría si viene en el POST
+        categoria_id = request.POST.get('categoria')
+        if categoria_id:
+            try:
+                producto.categoria = Categoria.objects.get(id=categoria_id)
+            except Categoria.DoesNotExist:
+                # ignorar si categoria no encontrada (podrías manejarlo mejor)
+                pass
+
         producto.save()
         return redirect('listar')
-    return render(request, 'editar.html', {'producto': producto})
+
+    contexto = {
+        'producto': producto,
+        'categorias': listar_categorias,
+    }
+    return render(request, 'editar.html', contexto)
 
 def eliminar_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
