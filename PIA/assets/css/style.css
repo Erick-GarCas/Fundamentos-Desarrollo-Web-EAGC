@@ -1,0 +1,519 @@
+/* Base: tipografía y colores principales
+   - Define la fuente principal usada en toda la página
+   - Fondo claro y color de texto por defecto */
+body{
+    font-family: Montserrat, Helvetica, sans-serif;
+    display: block;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Contenedor central (.content)
+   - Tarjeta visualizada en el centro con sombra ligera
+   - Usada para aislar el contenido principal */
+.content{
+    background-color: #fff;
+    margin: 10px auto;
+    width: 95%;
+    padding: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Header base y estilos relacionados (logo, navegación y acciones)
+   -- El hero se define más abajo de forma clara y sin duplicados. */
+
+.site-header .site-logo{
+    display: inline-block;
+    /* Tamaño aumentado: más presencia visual según solicitud */
+    height: 72px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.site-header .site-actions{
+    /* Usar layout flex normal para que los botones se alineen con el centro del header */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto; /* empuja las acciones a la derecha dentro de .header-inner */
+}
+
+.site-header .site-actions button{
+    border-radius: 6px;
+    padding: 6px 8px;
+}
+
+/* Toggle de modo oscuro: botón circular simple y accesible */
+.toggle-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #222;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    transition: background 150ms ease, transform 120ms ease, box-shadow 150ms ease;
+}
+
+.toggle-btn i{
+    font-size: 14px;
+}
+
+.toggle-btn:hover{ transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.10); }
+
+.toggle-btn.active{
+    background: #0d6efd;
+    color: #fff;
+    border-color: transparent;
+}
+
+/* Botón de inicio de sesión: estilo pill limpio con icono + texto */
+.login-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #0d6efd;
+    border: 1px solid #e6e9ef;
+    font-weight: 600;
+    text-decoration: none;
+    transition: box-shadow 140ms ease, transform 120ms ease;
+}
+
+.login-btn i{ font-size: 14px; }
+
+.login-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13,110,253,0.08);
+}
+
+/* En dispositivos pequeños se mantiene legibilidad pero sin acciones lateral */
+@media (max-width: 520px){
+    .login-btn .login-text{ display: none; }
+    .toggle-btn{ width: 36px; height: 36px; }
+}
+
+.site-nav ul{
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav ul li a{
+    color: #333;
+    text-decoration: none;
+    padding: 6px 10px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+/* Barra de navegación: fondo sutil y bordes redondeados para una lectura cómoda */
+.site-nav{
+    display: flex;
+    justify-content: center;
+}
+
+/* Ajustes: nav más compacta y centrada dentro del header */
+.site-nav ul{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 6px 8px;
+    /* Fondo celeste más sólido y claro para mejor visibilidad */
+    background: #e6f7ff; /* celeste muy claro, baja saturación */
+    border-radius: 10px;
+    max-width: 820px; /* acorta el contenedor del nav */
+}
+
+.site-nav ul li a{
+    color: #073763; /* color azul oscuro para buena legibilidad */
+    text-decoration: none;
+    padding: 8px 14px; /* espacio ajustado para reducir tamaño general */
+    font-weight: 700;
+    border-radius: 8px;
+    transition: background 160ms ease, color 160ms ease, transform 140ms ease, box-shadow 160ms ease;
+    font-size: 0.98rem; /* tamaño ligeramente menor para dar aspecto compacto */
+}
+
+/* Hover / Focus: efecto sutil con elevación y mayor contraste */
+.site-nav ul li a:hover,
+.site-nav ul li a:focus{
+    /* Hover sutil: tono celeste más oscuro y leve elevación */
+    background-color: rgba(3,99,164,0.10);
+    color: #012a4a; /* tono más oscuro al pasar el cursor */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(2,6,23,0.05);
+}
+
+/* Elemento activo: marca la sección actual con un sutil subrayado y contraste */
+.site-nav ul li a.active{
+    background-color: rgba(13,110,253,0.14);
+    color: #012a4a;
+}
+
+@media (max-width: 520px){
+    .site-nav ul{ padding: 6px 8px; gap: 6px; }
+    .site-nav ul li a{ padding: 8px 12px; font-size: 0.95rem; }
+}
+
+/* Header inner layout: logo left, nav centered (absolute), actions right */
+.header-inner{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 72px; /* asegura suficiente espacio vertical */
+}
+
+.header-inner .site-nav{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* En pantallas pequeñas: apilar y hacer la navegación estática bajo logo */
+@media (max-width: 900px){
+    .header-inner{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .header-inner .site-nav{
+        position: static;
+        transform: none;
+        margin-top: 6px;
+    }
+
+    .site-actions{ justify-content: flex-end; }
+}
+
+@media (max-width: 900px){
+    /* En móvil, ocultar acciones y reducir tamaño del logo */
+    .site-header .site-actions{ display: none; }
+    /* Tamaño de logo reducido en móvil para mantener equilibrio */
+    .site-header .site-logo{ height: 60px; }
+}
+
+/* Título en header */
+header h1{
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Navegación: barra principal
+   - Bloque simple, fondo sólido y bordes suaves
+   - Los enlaces se muestran como bloques para facilitar interacción */
+nav{
+    background-color: #0b5ed7;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* Lista de navegación
+   - Flexbox para distribuir los enlaces horizontalmente */
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Cada item de navegación: ocupa espacio equitativo */
+nav ul li{
+    flex: 1;
+    text-align: center;
+}
+
+/* Enlaces de navegación: apariencia y espaciado */
+nav ul li a{
+    display: block;
+    padding: 10px 8px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Estado hover para mejorar feedback visual */
+nav ul li a:hover{
+    background-color: #0a58ca;
+}
+
+/* Secciones principales con contenedores tipo 'card' */
+/* Separación entre secciones */
+section{
+    margin-top: 18px;
+}
+
+/* Estilo base para tarjetas reutilizables */
+.card{
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Nosotros */
+/* Sección Nosotros: fondo suave para destacar contenido */
+#nosotros{
+    background: #fffefb;
+    padding: 16px;
+    border-radius: 8px;
+    color: #333;
+}
+
+/* Mejora legibilidad del texto en Nosotros */
+#nosotros p{
+    line-height: 1.5;
+}
+
+/* Imagen del equipo o instalaciones */
+.img-nosotros{
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+}
+
+/* Servicios - tarjetas estilo simple */
+/* Contenedor donde se inyectan las tarjetas de servicios desde JS */
+#servicios-list{
+    margin-top: 10px;
+}
+
+/* Imagen en tarjeta de servicio
+   - object-fit: cover mantiene el recorte centrado */
+#servicios-list .card img{
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Texto auxiliar para características del servicio */
+.service-features{
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Cotizador y formularios */
+/* Formularios: apariencia base para los forms tipo tarjeta */
+form.card{
+    background: #ffffff;
+    border: 1px solid #eee;
+}
+
+/* Inputs y textarea: tamaño y espaciado uniforme */
+input,
+textarea,
+select{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Botones: puntero para indicar acción clicable */
+button{
+    cursor: pointer;
+}
+
+/* Galería */
+/* Galería: grid responsivo para mostrar miniaturas */
+#galeria-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+/* Miniaturas: mantener proporción con object-fit */
+.gallery-img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Testimonios */
+/* Estrellas de testimonio: color destacado */
+.testimonial-star{
+    color: #ffb400;
+    font-weight: 700;
+}
+
+/* FAQ acordeón (estilo sencillo) */
+/* Acordeón FAQ: bordes suaves */
+.accordion-item{
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Contacto y mapa */
+/* Contacto: pequeñas reglas para espaciado */
+#contacto p{
+    margin: 0 0 8px 0;
+}
+
+/* Iframe de mapa: quitar borde por defecto */
+.ratio iframe{
+    border: 0;
+}
+
+/* Footer */
+/* Footer: bloque final con texto centrado */
+footer{
+    background: #f8f9fa;
+    padding: 14px 0;
+    margin-top: 18px;
+    text-align: center;
+}
+
+/* Adaptaciones responsive sencillas */
+/* Media query: reglas para pantallas pequeñas (<=900px)
+   - Cambia la navegación de horizontal a vertical
+   - Ajusta el ancho del contenedor para mejorar lectura en móviles */
+@media (max-width: 900px){
+    nav ul{
+        flex-direction: column;
+    }
+
+    nav ul li{
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .content{
+        width: 96%;
+    }
+}
+
+/* Hero / Banner principal */
+.hero{
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    /* Usar imagen de fondo local (equipo2.png). Cobertura completa para crear un hero de ancho completo */
+    background-image: url('../img/equipo2.png');
+    background-size: cover;
+    background-position: center center;
+    min-height: 420px; /* fuerza altura mínima para mantener proporciones */
+}
+
+/* Overlay oscuro para mejorar legibilidad del texto sobre la imagen */
+.hero::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Overlay más oscuro para mayor contraste y que el texto destaque */
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+    border-radius: 12px;
+}
+
+
+.hero{
+    display: flex;
+    align-items: center;   /* centra verticalmente */
+    justify-content: center; /* centra horizontalmente */
+}
+
+.hero-text{
+    position: relative;
+    z-index: 2; /* encima del overlay */
+    text-align: center;
+    color: #ffffff;
+    padding: 0 18px;
+}
+
+/* Ajustes tipográficos del hero para que el texto no se corte y sea legible
+   - disminuimos el tamaño del título dentro del hero para evitar que sobresalga */
+.hero .display-5{
+    font-size: 2.6rem; /* tamaño menor que el estándar display-5 para este hero */
+    line-height: 1.05;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+}
+
+.hero .lead{
+    color: rgba(255,255,255,0.92);
+    font-size: 1.05rem;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+}
+
+/* Botón CTA en hero: fondo claro para contraste y sombra ligera */
+.hero .hero-cta,
+.hero-cta{
+    display: inline-block;
+    background: rgba(255,255,255,0.95);
+    color: #012a4a;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    box-shadow: 0 8px 22px rgba(2,6,23,0.06);
+    transition: transform 120ms ease, box-shadow 140ms ease;
+}
+
+.hero .hero-cta:hover{ transform: translateY(-3px); box-shadow: 0 12px 30px rgba(2,6,23,0.09); }
+
+/* Final .hero-text positioning is handled above (relative + flex centering). */
+
+/* Botón modo oscuro (pequeño estilo) */
+#btn-darkmode{
+    border-radius: 6px;
+}
+
+/* Galería: animación al pasar el cursor */
+.gallery-img{
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Carrusel / testimonios: espaciado */
+.carousel-item{
+    padding: 24px 0;
+}
+
+/* Dark mode: reglas básicas cuando body tiene la clase .dark */
+body.dark{
+    background-color: #121212;
+    color: #e5e5e5;
+}
+
+body.dark header{
+    background-color: #0b4f9c !important;
+}
+
+body.dark .card{
+    background: #1e1e1e;
+    color: #e5e5e5;
+    box-shadow: none;
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select{
+    background: #2a2a2a;
+    color: #e5e5e5;
+    border-color: #444;
+}
+
+body.dark footer{
+    background: #0f1720;
+    color: #cfcfcf;
+}
+
+
