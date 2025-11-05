@@ -36,22 +36,22 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="form-label">Nombre</label>
-                        <input class="form-control" type="text" name="nombre" value="{{ contacto.nombre }}" maxlength="100">
+                        <input class="form-control" type="text" name="nombre" value="{{ contacto.nombre }}" maxlength="100" pattern="[A-Za-z\s]+">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Primer apellido</label>
-                        <input class="form-control" type="text" name="primer_apellido" value="{{ contacto.primer_apellido }}" maxlength="100">
+                        <input class="form-control" type="text" name="primer_apellido" value="{{ contacto.primer_apellido }}" maxlength="100" pattern="[A-Za-z\s]+">
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="form-label">Segundo apellido</label>
-                        <input class="form-control" type="text" name="segundo_apellido" value="{{ contacto.segundo_apellido|default:'' }}" maxlength="100">
+                        <input class="form-control" type="text" name="segundo_apellido" value="{{ contacto.segundo_apellido|default:'' }}" maxlength="100" pattern="[A-Za-z\s]+">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Alias</label>
-                        <input class="form-control" type="text" name="alias" value="{{ contacto.alias|default:'' }}" maxlength="100">
+                        <input class="form-control" type="text" name="alias" value="{{ contacto.alias|default:'' }}" maxlength="100" pattern="[A-Za-z\s]+">
                     </div>
                 </div>
 
@@ -67,13 +67,13 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Teléfono</label>
-                        <input class="form-control" type="text" name="telefono" value="{{ contacto.telefono }}" maxlength="30">
+                        <input class="form-control" type="text" name="telefono" value="{{ contacto.telefono }}" maxlength="30" pattern="^\d{10}$">
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Correo</label>
-                    <input class="form-control" type="email" name="correo" value="{{ contacto.correo|default:'' }}">
+                    <input class="form-control" type="email" name="correo" value="{{ contacto.correo|default:'' }}" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$">
                 </div>
 
                 <button class="btn btn-primary" type="submit">Guardar</button>

@@ -57,7 +57,21 @@ def crear_contacto(request):
 
 		if errors:
 			relaciones = Relacion.objects.all()
-			return render(request, 'crear.html', {'errors': errors, 'relaciones': relaciones, 'data': request.POST})
+			phones = list(Contacto.objects.values_list('telefono', flat=True))
+			emails = list(Contacto.objects.exclude(correo__isnull=True).exclude(correo__exact='').values_list('correo', flat=True))
+			return render(request, 'crear.html', {'errors': errors, 'relaciones': relaciones, 'data': request.POST, 'phones': phones, 'emails': emails})
+
+		# Comprobación de duplicados en servidor (seguridad)
+		if Contacto.objects.filter(telefono=telefono).exists():
+			errors['telefono'] = 'Ya existe un contacto con ese teléfono.'
+		if correo:
+			if Contacto.objects.filter(correo__iexact=correo).exists():
+				errors['correo'] = 'Ya existe un contacto con ese correo.'
+		if errors:
+			relaciones = Relacion.objects.all()
+			phones = list(Contacto.objects.values_list('telefono', flat=True))
+			emails = list(Contacto.objects.exclude(correo__isnull=True).exclude(correo__exact='').values_list('correo', flat=True))
+			return render(request, 'crear.html', {'errors': errors, 'relaciones': relaciones, 'data': request.POST, 'phones': phones, 'emails': emails})
 
 		# Guardar en mayúsculas
 		nombre = nombre.upper()
@@ -79,7 +93,9 @@ def crear_contacto(request):
 		return redirect('listar')
 
 	relaciones = Relacion.objects.all()
-	return render(request, 'crear.html', {'relaciones': relaciones})
+	phones = list(Contacto.objects.values_list('telefono', flat=True))
+	emails = list(Contacto.objects.exclude(correo__isnull=True).exclude(correo__exact='').values_list('correo', flat=True))
+	return render(request, 'crear.html', {'relaciones': relaciones, 'phones': phones, 'emails': emails})
 
 
 def editar_contacto(request, id):
