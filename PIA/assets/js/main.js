@@ -15,8 +15,9 @@
         {id:10, nombre:'Odontopediatría', descripcion:'Servicios dentales especializados para niños: limpiezas, selladores y orientación.', precioMin:500, precioMax:1200, precio: (500+1200)/2, precioTexto: '$500 - $1,200 MXN', caracteristicas:['Infantil','Preventivo'], imagen:'https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=800&auto=format&fit=crop'},
         {id:11, nombre:'Periodoncia', descripcion:'Tratamientos para encías y estructuras de soporte: raspado y alisado radicular.', precioMin:1500, precioMax:2500, precio: (1500+2500)/2, precioTexto: '$1,500 - $2,500 MXN', caracteristicas:['Encías','Especializado'], imagen:'https://images.unsplash.com/photo-1556228720-5f0f1b0b8e6d?q=80&w=800&auto=format&fit=crop'},
         {id:12, nombre:'Diagnóstico Digital y Radiografías', descripcion:'Evaluaciones mediante radiografías panorámicas o periapicales.', precioMin:300, precioMax:600, precio: (300+600)/2, precioTexto: '$300 - $600 MXN', caracteristicas:['Diagnóstico','Imágenes digitales'], imagen:'https://images.unsplash.com/photo-1588774069159-1e0b03f1d0f4?q=80&w=800&auto=format&fit=crop'},
-    {id:13, nombre:'Urgencias Dentales', descripcion:'Atención inmediata a fracturas, dolor agudo o infecciones.', precioMin:800, precioMax:1200, precio: (800+1200)/2, precioTexto: '$800 - $1,200 MXN', caracteristicas:['24/7','Urgente'], imagen:'https://images.unsplash.com/photo-1582719478250-6f4b7b6b2d3b?q=80&w=800&auto=format&fit=crop'},
+        {id:13, nombre:'Urgencias Dentales', descripcion:'Atención inmediata a fracturas, dolor agudo o infecciones.', precioMin:800, precioMax:1200, precio: (800+1200)/2, precioTexto: '$800 - $1,200 MXN', caracteristicas:['24/7','Urgente'], imagen:'https://images.unsplash.com/photo-1582719478250-6f4b7b6b2d3b?q=80&w=800&auto=format&fit=crop'},
         {id:14, nombre:'Revisiones Generales', descripcion:'Consulta de valoración inicial con diagnóstico y plan de tratamiento.', precioMin:500, precioMax:800, precio: (500+800)/2, precioTexto: '$500 - $800 MXN', caracteristicas:['Valoración','Plan personalizado'], imagen:'https://images.unsplash.com/photo-1567016584419-2b8c14f4d3f5?q=80&w=800&auto=format&fit=crop'
+        }
     ];
 
     // Render servicios en la sección principal
@@ -136,18 +137,63 @@
     // Galería simple
     function renderGaleria(){
         const grid = document.getElementById('galeria-grid');
+        // Use local images from assets/img for the gallery carousel
+        // Only use images that start with 'equipo' or 'instalaciones'
         const urls = [
-            'https://images.unsplash.com/photo-1588774069159-1e0b03f1d0f4?q=80&w=800&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1567016584419-2b8c14f4d3f5?q=80&w=800&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1588776814546-89ef3b9f1f16?q=80&w=800&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1571799008301-5a4d48a1f8f6?q=80&w=800&auto=format&fit=crop'
+            'assets/img/equipo1.png',
+            'assets/img/equipo2.png',
+            'assets/img/equipo3.png',
+            'assets/img/instalaciones1.png',
+            'assets/img/instalaciones2.png',
+            'assets/img/instalaciones3.png',
+            'assets/img/instalaciones4.png'
         ];
+
+        const indicators = document.getElementById('galeria-indicators');
         grid.innerHTML = '';
-        urls.forEach(u => {
-            const col = document.createElement('div'); col.className='col-6 col-md-3';
-            col.innerHTML = `<img src="${u}" class="gallery-img" loading="lazy">`;
-            grid.appendChild(col);
+        indicators.innerHTML = '';
+
+        urls.forEach((u, idx) => {
+            const item = document.createElement('div');
+            item.className = 'carousel-item' + (idx === 0 ? ' active' : '');
+            item.innerHTML = `
+                <img src="${u}" class="gallery-img d-block w-100" loading="lazy" alt="Galería ${idx+1}">
+            `;
+            grid.appendChild(item);
+
+            // indicators (bootstrap 5 expects buttons inside .carousel-indicators)
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.setAttribute('data-bs-target', '#galleryCarousel');
+            btn.setAttribute('data-bs-slide-to', String(idx));
+            if(idx === 0){
+                btn.className = 'active';
+                btn.setAttribute('aria-current', 'true');
+            }
+            btn.setAttribute('aria-label', 'Slide ' + (idx+1));
+            indicators.appendChild(btn);
         });
+
+        // Initialize carousel with autoplay and pause on hover
+        try{
+            const carouselEl = document.getElementById('galleryCarousel');
+            if(window.bootstrap && carouselEl){
+                // destroy previous instance if exists
+                const existingInstance = bootstrap.Carousel.getInstance(carouselEl);
+                if(existingInstance){
+                    existingInstance.dispose();
+                }
+                // Create new carousel instance with autoplay
+                const bsCarousel = new bootstrap.Carousel(carouselEl, { 
+                    interval: 3000, 
+                    ride: 'carousel',
+                    pause: 'hover', 
+                    wrap: true 
+                });
+            }
+        }catch(err){
+            console.warn('Carousel init failed', err);
+        }
     }
 
     // Testimonios
@@ -184,20 +230,86 @@
     function setupUI(){
         const btnDark = document.getElementById('btn-darkmode');
         const btnLogin = document.getElementById('btn-login');
+        const logoImg = document.querySelector('.site-logo');
+
+        const syncThemeState = () => {
+            const isDark = document.body.classList.contains('dark');
+            btnDark && btnDark.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            const icon = btnDark ? btnDark.querySelector('i') : null;
+            if(icon){
+                icon.classList.remove('bi-moon-fill', 'bi-sun-fill');
+                icon.classList.add(isDark ? 'bi-sun-fill' : 'bi-moon-fill');
+            }
+            if(logoImg){
+                logoImg.src = isDark ? 'assets/img/logo-blanco.png' : 'assets/img/logo-negro.png';
+                logoImg.alt = isDark ? 'Clínica Dental Vitaldent logo blanco' : 'Clínica Dental Vitaldent logo oscuro';
+            }
+        };
+
         btnDark && btnDark.addEventListener('click', function(){
             document.body.classList.toggle('dark');
-            const icon = this.querySelector('i');
-            if(document.body.classList.contains('dark')){
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
+            syncThemeState();
         });
+
+        syncThemeState();
+
         btnLogin && btnLogin.addEventListener('click', function(){
             alert('Ir a iniciar sesión (simulación).');
         });
+    }
+
+    // Scroll spy ligero para resaltar la sección activa en la navegación
+    function setupNavScrollHighlight(){
+        const navLinks = document.querySelectorAll('.site-nav a');
+        if(!navLinks.length) return;
+
+        const linkMap = new Map();
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href') || '';
+            const key = href.startsWith('#') && href.length > 1 ? href.substring(1) : 'inicio';
+            linkMap.set(key, link);
+        });
+
+        const sections = [];
+        const hero = document.querySelector('.hero');
+        if(hero){ sections.push({key:'inicio', el: hero}); }
+
+        document.querySelectorAll('main section[id]').forEach(section => {
+            if(linkMap.has(section.id)){
+                sections.push({key: section.id, el: section});
+            }
+        });
+
+        const footer = document.getElementById('contacto');
+        if(footer && linkMap.has('contacto')){
+            sections.push({key:'contacto', el: footer});
+        }
+
+        if(!sections.length) return;
+
+        let lastActive = null;
+        const setActive = (key) => {
+            if(key === lastActive) return;
+            navLinks.forEach(link => link.classList.remove('active'));
+            const targetLink = linkMap.get(key) || linkMap.get('inicio');
+            targetLink && targetLink.classList.add('active');
+            lastActive = key;
+        };
+
+        const updateActive = () => {
+            const scrollPos = window.scrollY + 160; // compensa header fijo
+            let current = 'inicio';
+            sections.forEach(({key, el}) => {
+                if(scrollPos >= el.offsetTop - 40){
+                    current = key;
+                }
+            });
+            setActive(current);
+        };
+
+        updateActive();
+        window.addEventListener('scroll', updateActive, {passive:true});
+        window.addEventListener('resize', updateActive);
     }
 
     // Inicialización
@@ -208,6 +320,7 @@
         renderGaleria();
         renderTestimonios();
         setupUI();
+        setupNavScrollHighlight();
     });
 
 })();
